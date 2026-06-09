@@ -1,0 +1,37 @@
+{
+  "name": "react-native-web-z-index-fix",
+  "version": "1.0.0",
+  "description": "Fixes React Native Web giving every View z-index:0 (which traps earlier siblings below later ones). Import once on web to reset z-index:auto on RNW's css-view-* classes so stacking follows declaration order, like on native.",
+  "type": "module",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "react-native-web",
+    "react-native",
+    "z-index",
+    "stacking",
+    "stacking-context",
+    "expo",
+    "web",
+    "tooltip",
+    "overlay"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "react-native": "*"
+  },
+  "license": "ISC",
+  "author": "kasper@diestoeckels.de",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaspernj/react-native-web-z-index-fix.git"
+  },
+  "homepage": "https://github.com/kaspernj/react-native-web-z-index-fix#readme",
+  "bugs": {
+    "url": "https://github.com/kaspernj/react-native-web-z-index-fix/issues"
+  }
+}
