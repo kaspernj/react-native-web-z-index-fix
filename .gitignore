@@ -1,3 +1,6 @@
+/build
 node_modules
+tsconfig.tsbuildinfo
+/.fallow
 *.log
 .DS_Store

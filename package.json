@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Fixes React Native Web giving every View z-index:0 (which traps earlier siblings below later ones). Import once on web to reset z-index:auto on RNW's css-view-* classes so stacking follows declaration order, like on native.",
   "type": "module",
-  "main": "index.js",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "files": [
-    "index.js"
+    "build/**"
   ],
   "keywords": [
     "react-native-web",
@@ -19,7 +20,15 @@
     "overlay"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node scripts/clean-build.js && npm run compile",
+    "compile": "tsc -b",
+    "eslint": "eslint",
+    "fallow": "fallow dead-code --baseline fallow-baselines/dead-code.json --fail-on-issues --quiet && fallow dupes --baseline fallow-baselines/dupes.json --fail-on-issues --quiet && fallow health --baseline fallow-baselines/health.json --quiet",
+    "fallow:baseline": "fallow dead-code --save-baseline fallow-baselines/dead-code.json && fallow dupes --save-baseline fallow-baselines/dupes.json && fallow health --save-baseline fallow-baselines/health.json",
+    "lint": "npm run eslint && npm run typecheck && npm run fallow",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build",
+    "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
     "react-native": "*"
@@ -33,5 +42,14 @@
   "homepage": "https://github.com/kaspernj/react-native-web-z-index-fix#readme",
   "bugs": {
     "url": "https://github.com/kaspernj/react-native-web-z-index-fix/issues"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.0.1",
+    "eslint-plugin-jsdoc": "^63.0.0",
+    "fallow": "2.88.2",
+    "globals": "^17.0.0",
+    "react-native": "^0.81.0",
+    "typescript": "^6.0.2"
   }
 }

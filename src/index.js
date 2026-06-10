@@ -1,3 +1,5 @@
+// @ts-check
+
 import {Platform} from "react-native"
 
 // React Native Web renders every View with `z-index: 0`, which creates a stacking
@@ -16,3 +18,5 @@ if (Platform.OS === "web" && typeof document !== "undefined") {
   style.innerHTML = "[class^=\"css-view-\"] { z-index: auto; }"
   document.head.appendChild(style)
 }
+
+export {}
