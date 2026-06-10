@@ -1,6 +1,6 @@
 {
   "name": "react-native-web-z-index-fix",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Fixes React Native Web giving every View z-index:0 (which traps earlier siblings below later ones). Import once on web to reset z-index:auto on RNW's css-view-* classes so stacking follows declaration order, like on native.",
   "type": "module",
   "main": "build/index.js",
