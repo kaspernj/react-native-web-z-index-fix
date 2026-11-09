@@ -9,11 +9,26 @@ before_script:
 builds:
   lint:
     name: Lint
+    paths:
+      - "src/**"
+      - "scripts/**"
+      - "eslint.config.js"
+      - "fallow-baselines/**"
+      - ".fallowrc.json"
+      - "tsconfig.json"
+      - "package.json"
+      - "package-lock.json"
     script:
       - npm run eslint
       - npm run typecheck
       - npm run fallow
   build:
     name: Build
+    paths:
+      - "src/**"
+      - "scripts/**"
+      - "tsconfig.json"
+      - "package.json"
+      - "package-lock.json"
     script:
       - npm run build
