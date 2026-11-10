@@ -4,16 +4,31 @@ before_install:
   - echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_24.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
   - sudo apt-get update
   - sudo apt-get install -y nodejs
-before_script:
-  - npm install
+dependency_roots:
+  - path: .
 builds:
   lint:
     name: Lint
+    paths:
+      - "src/**"
+      - "scripts/**"
+      - "eslint.config.js"
+      - "fallow-baselines/**"
+      - ".fallowrc.json"
+      - "tsconfig.json"
+      - "package.json"
+      - "package-lock.json"
     script:
       - npm run eslint
       - npm run typecheck
       - npm run fallow
   build:
     name: Build
+    paths:
+      - "src/**"
+      - "scripts/**"
+      - "tsconfig.json"
+      - "package.json"
+      - "package-lock.json"
     script:
       - npm run build
